@@ -9,7 +9,7 @@ var controllers_1 = require("../controllers");
 var router = express_1.default.Router();
 // Define routes
 router.post("/backend", controllers_1.addDataController);
-router.put("/backend/:id", controllers_1.updateDataController);
+router.put("/backend", controllers_1.updateDataController);
 router.get("/backend", controllers_1.getCountOfCallsController);
 router.use(function (err, req, res, next) {
     console.error(err); // Log the error

@@ -11,7 +11,7 @@ const router = express.Router();
 // Define routes
 router.post("/backend", addDataController);
 
-router.put("/backend/:id", updateDataController);
+router.put("/backend", updateDataController);
 
 router.get("/backend", getCountOfCallsController);
 
