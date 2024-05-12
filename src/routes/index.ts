@@ -13,7 +13,7 @@ router.post("/backend", addDataController);
 
 router.put("/backend", updateDataController);
 
-router.get("/backend", getCountOfCallsController);
+router.get("/", getCountOfCallsController);
 
 router.use((err: any, req: any, res: any, next: any) => {
   console.error(err); // Log the error

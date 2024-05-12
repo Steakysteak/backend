@@ -10,7 +10,7 @@ var router = express_1.default.Router();
 // Define routes
 router.post("/backend", controllers_1.addDataController);
 router.put("/backend", controllers_1.updateDataController);
-router.get("/backend", controllers_1.getCountOfCallsController);
+router.get("/", controllers_1.getCountOfCallsController);
 router.use(function (err, req, res, next) {
     console.error(err); // Log the error
     res.status(500).json({ error: "Internal Server Error" }); // Send a generic error response
