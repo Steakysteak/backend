@@ -4,25 +4,25 @@ import dataRoutes from "./routes";
 import cors from "cors";
 import fs from "fs";
 import path from "path";
+import https from "https";
 
-const filePath = path.join(
-  __dirname,
-  "D512557EC47FDCDC6C47992670298C06.txt"
-);
+const keyPath = path.join(__dirname, "private.key");
 
-const file = fs.readFileSync(filePath);
+const certPath = path.join(__dirname, "certificate.crt");
+
+const key = fs.readFileSync(keyPath);
+const cert = fs.readFileSync(certPath);
+
+const cred = {
+  key,
+  cert,
+};
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.get(
-  "/.well-known/pki-validation/D512557EC47FDCDC6C47992670298C06.txt",
-  (req, res) => {
-    res.sendFile(filePath);
-  }
-);
 // Use data routes
 app.use(dataRoutes);
 
@@ -30,3 +30,6 @@ const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+const httpsServer = https.createServer(cred, app);
+httpsServer.listen(8443);
