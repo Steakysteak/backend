@@ -94,9 +94,11 @@ var getCountOfCallsController = function (req, res, next) { return __awaiter(voi
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
+                console.log("RUnning at line 48");
                 return [4 /*yield*/, (0, models_1.getCountOfCalls)()];
             case 1:
                 count = _a.sent();
+                console.log(count, "Count in get");
                 res.json({
                     count: count,
                 });

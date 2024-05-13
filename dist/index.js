@@ -7,9 +7,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var routes_1 = __importDefault(require("./routes"));
 var cors_1 = __importDefault(require("cors"));
+var fs_1 = __importDefault(require("fs"));
+var path_1 = __importDefault(require("path"));
+var filePath = path_1.default.join(__dirname, "backend", "3DF5DA60BA98FBCDA39DCD4BAB3711DD.txt");
+var file = fs_1.default.readFileSync(filePath);
 var app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
+app.get("/.well-known/pki-validation/3DF5DA60BA98FBCDA39DCD4BAB3711DD.txt", function (req, res) {
+    res.sendFile(filePath);
+});
 // Use data routes
 app.use(routes_1.default);
 var PORT = process.env.PORT || 8000;
