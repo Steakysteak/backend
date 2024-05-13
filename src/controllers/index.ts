@@ -45,7 +45,9 @@ const getCountOfCallsController = async (
   next: NextFunction
 ) => {
   try {
+
     const count = await getCountOfCalls();
+    console.log(count, "Count in get")
     res.json({
       count: count,
     });
