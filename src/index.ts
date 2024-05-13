@@ -7,8 +7,7 @@ import path from "path";
 
 const filePath = path.join(
   __dirname,
-  "backend",
-  "3DF5DA60BA98FBCDA39DCD4BAB3711DD.txt"
+  "D512557EC47FDCDC6C47992670298C06.txt"
 );
 
 const file = fs.readFileSync(filePath);
@@ -19,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get(
-  "/.well-known/pki-validation/3DF5DA60BA98FBCDA39DCD4BAB3711DD.txt",
+  "/.well-known/pki-validation/D512557EC47FDCDC6C47992670298C06.txt",
   (req, res) => {
     res.sendFile(filePath);
   }
