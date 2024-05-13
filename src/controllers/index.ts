@@ -45,7 +45,7 @@ const getCountOfCallsController = async (
   next: NextFunction
 ) => {
   try {
-
+    console.log("RUnning at line 48")
     const count = await getCountOfCalls();
     console.log(count, "Count in get")
     res.json({
